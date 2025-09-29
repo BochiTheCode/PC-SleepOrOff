@@ -37,12 +37,14 @@ class Program
         }
 
         // Расчет времени в миллисекундах
+        int delayHours = (int)(delayMinutes / 60);
         int delayMs = (int)(delayMinutes * 60 * 1000);
         int delaySeconds = (int)(delayMinutes * 60);
 
         Console.WriteLine($"\nДействие будет выполнено через:");
+        Console.WriteLine($"- {delayHours} часа");
         Console.WriteLine($"- {delayMinutes} минут(ы)");
-        Console.WriteLine($"- {delaySeconds} секунд(ы)");
+        //Console.WriteLine($"- {delaySeconds} секунд(ы)");
         Console.WriteLine($"- {TimeSpan.FromMinutes(delayMinutes):hh\\:mm\\:ss}");
         Console.WriteLine("\nДля отмены нажмите Ctrl+C\n");
 
@@ -77,7 +79,7 @@ class Program
             Process.Start("shutdown", "/s /f /t 0");
         }
 
-        Thread.Sleep(3000); // Даем время увидеть сообщение
+        Thread.Sleep(3000); 
     }
 
     static void SleepComputer(int delayMs)
@@ -86,7 +88,7 @@ class Program
         {
             Console.WriteLine($"Ожидание {delayMs / 60000} минут...");
 
-            // Показываем прогресс ожидания
+            //Прогресс ожидания
             DateTime startTime = DateTime.Now;
             DateTime targetTime = startTime.AddMilliseconds(delayMs);
 
@@ -103,7 +105,7 @@ class Program
         Console.WriteLine("Переводим компьютер в спящий режим...");
         SetSuspendState(false, true, true);
     }
-
+    //Библиотекаа лоя выкл пк . Потом на питоне попробовать сделать
     [System.Runtime.InteropServices.DllImport("powrprof.dll")]
     private static extern bool SetSuspendState(bool hibernate, bool forceCritical, bool disableWakeEvent);
 }
