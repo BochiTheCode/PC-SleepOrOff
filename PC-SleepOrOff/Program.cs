@@ -79,9 +79,10 @@ class Program
             Process.Start("shutdown", "/s /f /t 0");
         }
 
-        Thread.Sleep(3000); 
+        Thread.Sleep(3000);
     }
 
+    //Пока не работает
     static void SleepComputer(int delayMs)
     {
         if (delayMs > 0)
