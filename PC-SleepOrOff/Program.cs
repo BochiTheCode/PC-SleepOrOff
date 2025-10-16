@@ -35,7 +35,7 @@ class Program
             Console.ReadKey();
             return;
         }
-
+        
         // Расчет времени в миллисекундах
         int delayHours = (int)(delayMinutes / 60);
         int delayMs = (int)(delayMinutes * 60 * 1000);
