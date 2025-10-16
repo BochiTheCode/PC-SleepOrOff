@@ -82,7 +82,7 @@ class Program
         Thread.Sleep(3000);
     }
 
-    //Пока не работает
+    //Пока не работает 2
     static void SleepComputer(int delayMs)
     {
         if (delayMs > 0)
